@@ -102,3 +102,6 @@ $(call inherit-product, vendor/oneplus/dodge/dodge-vendor.mk)
 # after the common makefile's body, so its DEVICE_MANIFEST_FILE := cannot drop
 # the HIDL fragments this one appends.
 $(call inherit-product, vendor/oneplus/dolby/config.mk)
+
+# Camera
+$(call inherit-product-if-exists, vendor/oplus/camera/opluscamera.mk)
