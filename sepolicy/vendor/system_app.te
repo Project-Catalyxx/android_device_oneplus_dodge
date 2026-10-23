@@ -1,0 +1,10 @@
+# Device Settings: bypass charging (/sys/class/oplus_chg/battery/mmi_charging_enable)
+allow system_app vendor_sysfs_usb_supply:dir search;
+allow system_app vendor_sysfs_usb_supply:file rw_file_perms;
+
+# Device Settings: Game Bar CPU, GPU and FPS readouts
+allow system_app { proc_stat vendor_sysfs_kgsl vendor_sysfs_kgsl_gpuclk }:file r_file_perms;
+
+# Device Settings: OnePulse PWM, HBM, min fps and the panel TE counter
+# (/sys/kernel/oplus_display)
+rw_dir_file(system_app, vendor_sysfs_graphics)
