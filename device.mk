@@ -43,6 +43,12 @@ PRODUCT_PACKAGES += \
     OPlusSettingsResTarget \
     OPlusSystemUIResTarget
 
+# Media: sm8750-common's codec2 audio list plus the Dolby AC3/E-AC3/E-AC3-JOC
+# decoders. Listed here, ahead of the common makefile's inherit, so this copy
+# is the one installed.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media/media_codecs_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2_audio.xml
+
 # NFC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-mtp-SN220.conf_23821:$(TARGET_COPY_OUT_ODM)/etc/libnfc-mtp-SN220.conf_23821 \
@@ -91,3 +97,8 @@ $(call inherit-product, device/oneplus/sm8750-common/common.mk)
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/dodge/dodge-vendor.mk)
+
+# Dolby Atmos (DAP) and the LunarisDolby app. Inherited makefiles are read
+# after the common makefile's body, so its DEVICE_MANIFEST_FILE := cannot drop
+# the HIDL fragments this one appends.
+$(call inherit-product, vendor/oneplus/dolby/config.mk)
