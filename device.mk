@@ -131,6 +131,15 @@ $(call inherit-product, device/oneplus/sm8750-common/common.mk)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/camera_unit_feature_config.protobuf:$(TARGET_COPY_OUT_ODM)/etc/camera/config/camera_unit_feature_config.protobuf
 
+# The camera's vendor public libraries: stock's list, which sm8750-common's
+# vendor ships, plus the ArcSoft/QNN libraries OplusCamera dlopen()s and
+# libapsfixup, an /odm lib that libAlgoProcess now needs and that the camera's
+# namespace can't otherwise reach. On Rising this is a blob fixup in
+# sm8750-common's extract-files.py; LineageOS's sm8750-common is unforked here,
+# and this file body's copies win over every inherited makefile's.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/linker/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/dodge/dodge-vendor.mk)
 
