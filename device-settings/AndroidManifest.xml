@@ -71,10 +71,14 @@
             <meta-data
                 android:name="com.android.settings.keyhint"
                 android:value="top_level_device_settings" />
-            <!-- Its own card, straight after Catalyxx Lab (-125). Ungrouped cards are
-                 placed by order alone: connectivity is -130, personalize -120. Settings
-                 reads this with getInt(), so it must be a value: a resource reference
-                 would hand it the resource ID and sink the card to the bottom. -->
+            <!-- In Catalyxx's extras card, under Catalyxx Lab (-125). A Settings without
+                 that card places it by order alone: connectivity is -130, personalize
+                 -120. Settings reads this with getInt(), so it must be a value: a
+                 resource reference would hand it the resource ID and sink the card to
+                 the bottom. -->
+            <meta-data
+                android:name="com.android.settings.group_key"
+                android:value="top_level_extras_category" />
             <meta-data
                 android:name="com.android.settings.order"
                 android:value="-124" />
