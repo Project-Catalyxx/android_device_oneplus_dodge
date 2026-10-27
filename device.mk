@@ -7,8 +7,8 @@
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
-# Alert slider, and Oscar's Device Settings (its KeyHandler takes the slider
-# over from hardware/oplus's: overlay-lineage/lineage-sdk)
+# Alert slider, and Oscar's Device Settings (hardware/oplus/packages/DeviceSettings;
+# its KeyHandler takes the slider over from hardware/oplus's: overlay-lineage/lineage-sdk)
 PRODUCT_PACKAGES += \
     DeviceSettings \
     tri-state-key-calibrate
