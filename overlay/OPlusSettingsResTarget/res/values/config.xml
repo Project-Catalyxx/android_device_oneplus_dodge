@@ -24,4 +24,7 @@
 
     <!-- The radius of the enrollment progress bar, in dp -->
     <integer name="config_udfpsEnrollProgressBar" translatable="false">119</integer>
+
+    <!-- Vibration intensity: offer the HAL's light, medium and strong levels as sliders -->
+    <integer name="config_vibration_supported_intensity_levels">3</integer>
 </resources>
